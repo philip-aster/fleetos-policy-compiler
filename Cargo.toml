@@ -1,0 +1,15 @@
+[package]
+name = "fleetos-policy-compiler"
+version = "0.1.1-rc-2"
+edition = "2024"
+license = "Apache-2.0"
+description = "Canonical SAG -> eBPF policy compiler shared by fleetos-control and fleetos-agent"
+
+[dependencies]
+fleetos-core = { path = "../fleetos-core" }
+fleetos-ebpf-common = { path = "../fleetos-ebpf/fleetos-ebpf-common" }
+serde = { version = "1.0.229", features = ["derive"] }
+thiserror = "2.0.20"
+
+[dev-dependencies]
+walkdir = "2.5.0"
