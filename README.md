@@ -45,6 +45,7 @@ cargo test -p fleetos-policy-compiler --test key_padding_contract
 
 # Verify the fingerprint purity invariant
 cargo test -p fleetos-policy-compiler --test fingerprint_guard
+```
 
 ## Dependencies
 
