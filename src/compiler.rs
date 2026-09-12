@@ -7,6 +7,13 @@
 //! Protocol is not in the current `PeerSelector` schema, so exact entries
 //! default to TCP (6). If a future version adds a protocol field, this
 //! default becomes unnecessary.
+//!
+//! **EBPF-CR-6 contract:** all eBPF policy-map key/value construction MUST go
+//! through the `to_ebpf_*` helpers in this module. They are the only writers
+//! that zero the struct padding bytes (`_pad`/`_pad2`); kernel map lookups are
+//! exact-byte matches, so a non-zero pad silently misses and turns an Allow
+//! into a default-deny. The contract is pinned by
+//! `tests/key_padding_contract.rs`.
 
 use fleetos_core::MonotonicVersion;
 use fleetos_core::hash::IdentityFingerprint;
